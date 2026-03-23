@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل اللعبة</title>
+    <style>
+        /* الخطوط والألوان */
+        body {
+
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        h1, h3 {
+            color: #2c3e50;
+        }
+
+        h4, p {
+            color: #7f8c8d;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* تنسيق القوائم */
+        ul {
+            list-style-type: none;
+            padding: 0;
+			
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        /* تنسيق الروابط */
+        a {
+            text-decoration: none;
+            color: #2980b9;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #3498db;
+        }
+
+        /* النصوص مع التمييز */
+        .f10 {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .e, .b {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+/* تصميم الأزرار أو الروابط المميزة */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #118540; /* اللون الأخضر المطلوب */
+    color: #f1c40f; /* اللون الأصفر للنص */
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #118540; /* نفس اللون عند المرور */
+    color: #f1c40f; /* الحفاظ على اللون الأصفر عند المرور */
+}
+
+        /* التنسيق المتجاوب */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .f10 {
+                font-size: 12px;
+            }
+
+            .button {
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            .f10 {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>دليل اللعبة</h1>
+    <div id="textmenu">
+        <a href="manual.php" class="button <?php if ($_GET['t'] == 0) { ?>selected<?php } ?>">دليل اللعبة</a> |
+        <a href="manual.php?t=1" class="button <?php if ($_GET['t'] == 1) { ?>selected<?php } ?>">دليل التحف</a>
+    </div>
+
+    <?php if ($_GET['t'] == 1) { ?>
+    <h3>أنواع التحف وتأثيرها</h3>
+    <ul>
+        <li><span class="highlight">تحفة المهاجم الشرس</span>: تزيد قوة الجيوش الهجومية.</li>
+        <li><span class="highlight">تحفة المهاجم الأسطوري</span>: متطلبات موارد جيوش صاحب التحفة تكون أقل بالنصف أو الربع.</li>
+        <li><span class="highlight">تحفة المدافع العملاق</span>: تزيد قوة الجيوش الدفاعية وقوة للسور أيضًا.</li>
+        <li><span class="highlight">تحفة قوات أسرع</span>: تزيد سرعة الجيوش لصاحبها.</li>
+        <li><span class="highlight">تحفة الكشاف الماهر</span>: تزيد قوة الجواسيس ويمكن كشف أنواع القوات المهاجمة عليه.</li>
+        <li><span class="highlight">تحفة استهلاك قمح أقل</span>: استهلاك القمح للقرية يكون أقل نصف أو ربع.</li>
+        <li><span class="highlight">تحفة المهندس المعماري</span>: تزيد قوة المباني بشكل قوي.</li>
+        <li><span class="highlight">تحفة المخبأ الكبير</span>: تزيد حجم المخبأ لدى اللاعب ولا يمكن تحديد أي مبنى عند الهجوم عليه.</li>
+    </ul>
+
+    <h3>أصناف التحف</h3>
+    <ul>
+        <li><span class="highlight">تحف نادرة</span>: مفعول عالي وعلى كل قرى اللاعب مستوى الخزنة 20.</li>
+        <li><span class="highlight">تحف كبيرة</span>: مفعول وسط وعلى كل قرى اللاعب مستوى الخزنة 20.</li>
+        <li><span class="highlight">تحف صغيرة</span>: مفعول عالي وعلى القرية التي خطفت بها التحفة مستوى الخزنة 10.</li>
+    </ul>
+
+    <h3>عدد التحف</h3>
+    <ul>
+        <li><span class="highlight">تحف نادرة</span>: 8</li>
+        <li><span class="highlight">تحف كبيرة</span>: 8</li>
+        <li><span class="highlight">تحف صغيرة</span>: 8</li>
+        <li><span class="highlight">جميع عدد التحف</span>: 24</li>
+    </ul>
+
+    <h3>ماذا يلزمني لاحتلال تحفة</h3>
+    <ul>
+        <li><span class="highlight">خزنة من المستوى 10 أو 20</span></li>
+        <li><span class="highlight">بطل</span></li>
+        <li><span class="highlight">تدمير جيوش التحفة بالكامل</span></li>
+        <li><span class="highlight">مقاليع لتدمير الخزنة في قرية المدافع</span></li>
+    </ul>
+
+    <h3>ماذا بعد احتلال التحفة</h3>
+    <p>ستنتقل التحفة إلى قريتك ويجب حمايتها في وضع قوات مدافعة في القرية التي خطفت بها التحفة.</p>
+
+    <?php } else { ?>
+    <div class="f10">
+        <p class="e b">كم مدة اللعبة</p>
+        <p>حرب التتار مفتوحة لـ <span class="highlight">7</span> يوم/أيام. تظهر التحف بعد <span class="highlight">4</span> يوم/أيام من بداية اللعبة، وبعد الانتهاء يتم إعادة سيرفر حرب التتار بعد <span class="highlight">24</span> ساعة/ساعات تلقائيًا.</p>
+
+        <p class="e b">متى يتم توزيع الأوسمة</p>
+        <p>يتم توزيع الأوسمة كل يوم (<span class="highlight">24 ساعة</span>). لمعرفه المتبقي على توزيع الأوسمة، ادخل على الإحصائيات => أفضل 10 أو عن طريق المستطيل الصغير تحت مدير المهمات.</p>
+
+        <p class="e b">هل قواتي تموت من الجوع (القمح سالب)</p>
+        <p>نعم، قواتك تموت عند نفاد القمح في المخزن. يجب توفير قمح ممتاز لأجلهم.</p>
+
+        <p class="e b">هل يمكن تدمير عاصمتي</p>
+        <p>نعم، يمكن تدميرها إلا إذا كانت آخر قرية لديك في العضوية.</p>
+
+        <p class="e b">التحف وأنواعها</p>
+        <p><a href="manual.php?t=1" class="button">التحف وأنواعها</a></p>
+    </div>
+    <?php } ?>
+
+</div>
+
+</body>
+</html>

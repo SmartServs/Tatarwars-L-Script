@@ -1,0 +1,185 @@
+<style>
+@media screen and (max-width: 900px) {
+    .molvp-protection {
+        position: absolute;
+        display: none;
+        z-index: 100;
+        float: right;
+        top: 610px;
+        left: 50%;
+        color: #54C571;
+        background: #00000000;
+        height: 41px;
+        font-weight: 700;
+    }
+}
+
+
+
+h2 {
+    color: #54C571;
+    font-size: 24px;
+    text-align: center;
+}
+
+#textmenu {
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center;
+    margin-top: 30px;
+}
+
+#textmenu a {
+    background-color: #54C571;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+#textmenu a:hover {
+    background-color: #54C571;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form .text {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+}
+
+form .text:focus {
+    outline: none;
+    border-color: #54C571;
+}
+
+form .btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#btn_login {
+    padding: 10px 20px;
+    background-color: #54C571;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#btn_login:hover {
+    background-color: #54C571;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+.center {
+    text-align: center;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<?php
+session_start();
+//verbs 
+$name = $_SESSION['nm_admin'];
+$pwd = $_SESSION['pwd_admin'];
+require(".".DIRECTORY_SEPARATOR."core-f".DIRECTORY_SEPARATOR."admin.php");
+$adminm = $a;
+$adminpwd = $p;
+$sumbit = $_POST['s1'];
+//end verbs
+if ($name == $adminm && $pwd == $adminpwd){
+$login = TRUE;
+}else {
+$login = FALSE;
+}
+if (isset($sumbit) && !$login) {
+
+if (md5($_POST['name']) == $adminm && md5($_POST['password']) == $adminpwd) {
+$login = TRUE;
+$sumbit = false;
+$_SESSION['nm_admin'] = md5($_POST['name']);
+$_SESSION['pwd_admin'] = md5($_POST['password']);
+}
+}
+if (isset($_GET['log'])){
+$login = FALSE;
+$_SESSION['nm_admin'] = "";
+$_SESSION['pwd_admin'] = "";
+}
+if ($login) {
+?>
+<div id="textmenu">
+ <a href="adcp" >اللاعبين</a>
+  <a href="h1231restore.php" >البطل</a>
+    <a href="mextract.php" >E-Mail</a>
+ <a href="adwp?t=1">السيرفر</a>
+ <a href="serverst.php?t=7">التصويت</a>
+  <a href="serverst.php?t=9">الموجودين حاليا</a>
+    <a href="serverst.php?t=11">تجديد الحماية</a>
+ <a href="pinfo.php">بيانات اللاعبين</a>
+ <a href="plus?copon">كوبونات</a>
+ <a href="wesam1.php">Vip اضافة</a>
+</div>
+<?php
+} else {
+?>
+
+<div class="center">
+    <form action="admin.php" method="post" name="login">
+        <h2>لوحه ادارة السيرفر</h2>
+        <div>
+            <label for="name">اسم المستخدم: </label>
+            <input class="text" maxlength="15" name="name" type="text" title="الاسم" value="">
+            <span class="error"></span>
+        </div>
+        <div>
+            <label for="password">كــلـمـــة الـسـر: </label>
+            <input class="text" name="password" type="password" title="كلمة المرور" value="">
+            <span class="error"></span>
+        </div>
+        <div class="btn">
+            <input id="btn_login" class="dynamic_img" type="submit" name="s1" value="تسجيل الدخول">
+        </div>
+    </form>
+</div>
+
+<?php 
+}
+?>
+</body>
+</html>
