@@ -1,4 +1,4 @@
-# 🏹 Tatarwars-L Script (Lite Version)
+# 🏹 Tatarwars-L 2025 Script (Lite Version) | SmartServs
 
 سكربت **حرب التتار - النسخة الخفيفة (L-V1 2025)**  
 مصمم لعشاق اللعب الكلاسيكي البسيط والسريع بدون تعقيدات أو إضافات مملة.
