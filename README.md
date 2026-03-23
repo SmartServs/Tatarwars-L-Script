@@ -74,7 +74,8 @@ http://www.yoursite.com/login.php?myinstall=install9
 
 - تأكد من ضبط إعدادات قاعدة البيانات بشكل صحيح  
 - لا تشارك بيانات الاتصال (Database Credentials)  
-- يفضل تشغيل السكربت على PHP 5.6  
+- يفضل تشغيل السكربت على PHP 5.6
+- اذا ظهر لك خطأ 503 عند التنصيب تأكد من حذف ملف install.txt الموجود داخل فولدر core-f\stx
 
 ---
 
